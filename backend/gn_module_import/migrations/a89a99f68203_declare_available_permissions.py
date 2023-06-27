@@ -34,7 +34,7 @@ def upgrade():
 	            (SELECT id_object FROM gn_permissions.t_objects WHERE code_object = 'IMPORT'),
 	            (SELECT id_module FROM gn_commons.t_modules WHERE module_code = 'IMPORT')
             )
-        """
+        """     
     )
     op.execute(
         """
@@ -127,8 +127,6 @@ def upgrade():
             bp.id_permission = p.id_permission;
         """
     )
-
-
 def downgrade():
     op.execute(
         """
@@ -160,3 +158,4 @@ def downgrade():
         """
     )
     op.execute("DELETE FROM gn_permissions.t_objects WHERE code_object = 'IMPORT'")
+
